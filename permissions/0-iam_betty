@@ -1,2 +1,2 @@
 #!/bin/bash
-su - betty -c 'echo "Switched to usert Betty!"'
+su betty 
