@@ -2,5 +2,9 @@
 #Script that displays the content of the file /etc/passwd
 IFS=":"
 while read -r username password userid groupid comment homedir shell; do
+    if [ -z "$comment" ]; then
+        comment="$username"
+    fi
+
     echo "The user $username is part of the $groupid gang, lives in $homedir and rides $shell. $userid's place is protected by passcode $password, more info about the user here: $comment"
 done < /etc/passwd
