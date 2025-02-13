@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Script that lists processes with the word bash 
+
+pgrep -l bash
