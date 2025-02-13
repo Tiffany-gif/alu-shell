@@ -3,9 +3,9 @@
 
 PID_FILE="/var/run/myscript.pid"
 echo $$ > "$PID_FILE"
+trap 'rm -f "$PID_FILE"; exit' SIGQUIT
 trap 'echo "I hate the kill command"; exit' SIGTERM
 trap 'echo "Y U no love me?!";' SIGINT
-trap 'rm -f "$PID_FILE"; exit' SIGTERM SIGQUIT
 while true 
 do 
 	echo "To infinity and beyond" 
