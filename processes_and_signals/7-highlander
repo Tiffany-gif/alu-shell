@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
-#script that displays to infinity and beyond indefinetely
-trap 'echo "I am invincible!!!"; exit' SIGTERM
+#Script tha uses a SIGTERM signal
+
+function no_ctrlc()
+{
+    echo "I am invincible!!!"
+}
+
+
+trap no_ctrlc SIGTERM
 
 while :
 do
