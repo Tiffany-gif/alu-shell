@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 #Script that displays messages when read some signals 
 
-function love() {
-     rm /var/run/myscript.pid
-     exit
-}
-
-trap "echo I hate the kill command; love" ISGTERM
-trap "echo Y U no love me?!;love" SIGINT
-
-echo $$ >> /var/run/myscript.pid
-while [ true ]; do
-echo "To infinity and beyond";
-done    
+PID_FILE="/var/run/myscript.pid"
+echo $$ > "$PID_FILE"
+trap 'echo "I hate the kill command"; exit' SIGTERM
+trap 'echo "Y U no love me?!";' SIGINT
+trap 'rm -f "$PID_FILE"; exit' SIGQUIT
+while true 
+do 
+	echo "To infinity and beyond" 
+	sleep 2
+done
