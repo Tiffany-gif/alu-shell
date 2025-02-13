@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Script that lists all my processes 
+
+ps -aux --forest
