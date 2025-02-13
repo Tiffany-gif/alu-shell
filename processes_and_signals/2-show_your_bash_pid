@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Script that displays a list of currednt processes with the word bash
+
+ps aux --forest | grep bash
